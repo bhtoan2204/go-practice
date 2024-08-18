@@ -1,0 +1,9 @@
+CREATE TABLE group_members (
+    id SERIAL PRIMARY KEY,
+    group_id INT NOT NULL REFERENCES groups (id) ON DELETE CASCADE,
+    user_id INT NOT NULL REFERENCES users (id) ON DELETE CASCADE,
+    role VARCHAR(50) NOT NULL DEFAULT 'member',
+    joined_at TIMESTAMP
+    WITH
+        TIME ZONE DEFAULT CURRENT_TIMESTAMP
+);
