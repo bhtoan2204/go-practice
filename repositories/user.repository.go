@@ -1,4 +1,4 @@
-package repository
+package repositories
 
 import (
 	"github.com/bhtoan2204/go-practice.git/config"
