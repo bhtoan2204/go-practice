@@ -1,6 +1,6 @@
 package manager
 
-type UserRouterGroup struct {
+type ManagerRouterGroup struct {
 	AdminRouter
 	UserRouter
 }

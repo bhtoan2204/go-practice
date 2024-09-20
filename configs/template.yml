@@ -1,0 +1,29 @@
+server:
+  port:
+  mode:
+mysql:
+  host:
+  port:
+  user:
+  pass:
+  name:
+  max_idle_conns:
+  max_open_conns:
+  max_lifetime:
+log:
+  log_level:
+  file_path:
+  max_size:
+  max_backups:
+  max_age:
+  compress:
+redis:
+  host:
+  port:
+  password:
+  database:
+security:
+  jwt_access_secret:
+  jwt_refresh_secret:
+  jwt_access_expiration:
+  jwt_refresh_expiration:

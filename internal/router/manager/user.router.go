@@ -8,7 +8,7 @@ import (
 type UserRouter struct {
 }
 
-func (p *UserRouter) InitUserRouter(Router *gin.RouterGroup) {
+func (p *UserRouter) InitManagerRouter(Router *gin.RouterGroup) {
 	// private routes
 	userRouterPrivate := Router.Group("/admin/user")
 	userRouterPrivate.Use(middleware.AuthenticationMiddleware())
