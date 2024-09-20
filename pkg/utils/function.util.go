@@ -14,8 +14,8 @@ var SECRET_KEY string = os.Getenv("SECRET_KEY")
 type SignedDetails struct {
 	ID        string
 	Email     string
-	Firstname string
-	Lastname  string
+	FirstName string
+	LastName  string
 	IsAdmin   bool
 	jwt.StandardClaims
 }

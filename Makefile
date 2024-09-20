@@ -25,11 +25,11 @@ debug:
 
 run-dev:
 	@echo "Running Go application in development mode..."
-	@go run -race ./cmd/main.go
+	@go run -race ./cmd/server/main.go
 
 run:
 	@echo "Running Go application in normal mode..."
-	@go run ./cmd/main.go
+	@go run ./cmd/server/main.go
 
 build:
 	@echo "Building Go application..."
