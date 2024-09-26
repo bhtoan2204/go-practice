@@ -22,6 +22,11 @@ redis:
   port: 6379
   password:
   database: 0
+kafka:
+  broker: localhost
+  port: 9092
+  topic: gateway-events
+  group_id: gateway-group
 security:
   jwt_access_secret: 8RgPPwhw6BKHRHT68vfpZpTnpWEJqRV3lUQd4QJlrs12RNiLFtk1QpvGQoB1
   jwt_refresh_secret: ROSyJWWHgSejTAEIemaSrLT59Evc2M9AUtp4O4sVHGpIFS9rLGGEx0GPAPiV

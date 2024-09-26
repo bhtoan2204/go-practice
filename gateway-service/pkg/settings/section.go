@@ -39,10 +39,18 @@ type RedisConfig struct {
 	Database int    `mapstructure:"database"`
 }
 
+type KafkaConfig struct {
+	Broker  string `mapstructure:"broker"`
+	Port    int    `mapstructure:"port"`
+	Topic   string `mapstructure:"topic"`
+	GroupID string `mapstructure:"group_id"`
+}
+
 type Config struct {
 	Server         ServerConfig   `mapstructure:"server"`
 	MySQLConfig    MySQLConfig    `mapstructure:"mysql"`
 	LogConfig      LogConfig      `mapstructure:"log"`
 	SecurityConfig SecurityConfig `mapstructure:"security"`
 	RedisConfig    RedisConfig    `mapstructure:"redis"`
+	KafkaConfig    KafkaConfig    `mapstructure:"kafka"`
 }

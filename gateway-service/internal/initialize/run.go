@@ -2,6 +2,7 @@ package initialize
 
 import (
 	"gateway-service/global"
+	"strconv"
 )
 
 func Run() {
@@ -9,7 +10,8 @@ func Run() {
 	InitLogger()
 	InitMysql()
 	InitRedis()
+	InitKafka()
 	r := InitRouter()
-	r.Run(":8080")
+	r.Run(":" + strconv.Itoa(global.Config.Server.Port))
 	global.Logger.Info("Initialize all services successfully")
 }
