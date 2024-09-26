@@ -29,7 +29,7 @@ run-dev:
 
 run:
 	@echo "Running Go application in normal mode..."
-	@go run ./cmd/server/main.go
+	@go run ./gateway-service/cmd/server/main.go
 
 build:
 	@echo "Building Go application..."

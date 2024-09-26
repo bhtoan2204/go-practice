@@ -1,9 +1,9 @@
 version: "3.8"
 
 services:
-  human-resources:
+  gateway-service:
     build:
-      context: .
+      context: ./gateway-service
       dockerfile: Dockerfile
     ports:
       - "8080:8080"
@@ -40,6 +40,17 @@ services:
     image: redis:latest
     ports:
       - "6379:6379"
+
+  kafka-ui:
+    image: provectuslabs/kafka-ui:latest
+    container_name: kafka-ui
+    ports:
+      - "8085:8080"
+    environment:
+      KAFKA_CLUSTERS_0_NAME: local
+      KAFKA_CLUSTERS_0_BOOTSTRAPSERVERS: kafka:9092
+    depends_on:
+      - kafka
 
 volumes:
   mysql_data:
