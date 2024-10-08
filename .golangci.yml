@@ -1,0 +1,25 @@
+run:
+  timeout: 5m
+  tests: true
+
+linters:
+  enable:
+    - govet
+    - revive
+    - staticcheck
+    - errcheck
+    - ineffassign
+    - gosimple
+    - unused
+
+linters-settings:
+  revive:
+    severity: warning
+
+issues:
+  exclude-rules:
+    - linters:
+        - errcheck
+      text: ".*fmt.*Printf.*"
+  max-issues-per-linter: 0
+  max-same-issues: 0

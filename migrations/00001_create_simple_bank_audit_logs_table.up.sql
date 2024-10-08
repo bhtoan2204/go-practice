@@ -1,0 +1,13 @@
+CREATE TABLE audit_logs (
+    id BIGINT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    user_id BIGINT UNSIGNED NOT NULL,
+    action VARCHAR(255) NOT NULL,
+    details TEXT,
+    ip_address VARCHAR(45),
+    device_token VARCHAR(255),
+    created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    deleted_at TIMESTAMP NULL,
+    INDEX idx_deleted_at (deleted_at),
+    FOREIGN KEY (user_id) REFERENCES users (id) ON DELETE SET NULL
+);

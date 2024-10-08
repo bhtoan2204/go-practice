@@ -1,27 +1,30 @@
 # Makefile
 
-DB_HOST=localhost
-DB_PORT=5432
-DB_USER=youruser
-DB_PASS=yourpassword
-DB_NAME=yourdatabase
-DB_SSLMODE=disable
+DB_HOST = localhost
+DB_PORT = 3306
+DB_USER = root
+DB_PASS = root
+DB_NAME = simple_bank
 
-MIGRATE_CMD=migrate -database "postgres://$(DB_USER):$(DB_PASS)@$(DB_HOST):$(DB_PORT)/$(DB_NAME)?sslmode=$(DB_SSLMODE)" -path migrations
+MIGRATION_DIR := ./migrations
+DB_URL := mysql://$(DB_USER):$(DB_PASS)@tcp($(DB_HOST):$(DB_PORT))/$(DB_NAME)?charset=utf8mb4&parseTime=True&multiStatements=true
+MIGRATE := migrate
+MIGRATE_CMD = $(MIGRATE) -path $(MIGRATION_DIR) -database "$(DB_URL)"
 
-.PHONY: migrate-up migrate-down migrate-force
-
+.PHONY: migrate-up
 migrate-up:
-	$(MIGRATE_CMD) up
+	@echo "Running migrate up..."
+	@$(MIGRATE_CMD) up
 
+.PHONY: migrate-down
 migrate-down:
-	$(MIGRATE_CMD) down
+	@echo "Running migrate down..."
+	@$(MIGRATE_CMD) down
 
-migrate-force:
-	$(MIGRATE_CMD) force
-
-debug:
-	ls -la $(PWD)/migrations
+lint:
+	@echo "Linting Go files..."
+	@golangci-lint run ./...
+	@echo "Linting Go files completed"
 
 run-dev:
 	@echo "Running Go application in development mode..."
@@ -29,7 +32,7 @@ run-dev:
 
 run:
 	@echo "Running Go application in normal mode..."
-	@go run ./gateway-service/cmd/server/main.go
+	@go run ./cmd/server/main.go
 
 build:
 	@echo "Building Go application..."

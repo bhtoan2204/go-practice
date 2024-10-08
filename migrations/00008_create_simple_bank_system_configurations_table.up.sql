@@ -1,0 +1,10 @@
+CREATE TABLE system_configurations (
+    id BIGINT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    config_key VARCHAR(255) NOT NULL UNIQUE,
+    config_value TEXT NOT NULL,
+    description TEXT,
+    created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    deleted_at TIMESTAMP NULL,
+    INDEX idx_deleted_at (deleted_at)
+);

@@ -1,13 +1,6 @@
 version: "3.8"
 
 services:
-  # gateway-service:
-  #   build:
-  #     context: ./gateway-service
-  #     dockerfile: Dockerfile
-  #   ports:
-  #     - "8080:8080"
-
   zookeeper:
     image: confluentinc/cp-zookeeper:7.3.2
     environment:
@@ -35,7 +28,7 @@ services:
       - "3306:3306"
     environment:
       MYSQL_ROOT_PASSWORD: root
-      MYSQL_DATABASE: human_resources
+      MYSQL_DATABASE: simple_banking
     volumes:
       - mysql_data:/var/lib/mysql
 
