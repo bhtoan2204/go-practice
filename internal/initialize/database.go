@@ -80,5 +80,5 @@ func InitMysql() {
 
 	SetPool()
 
-	migrateTables()
+	// migrateTables()
 }

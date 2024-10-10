@@ -7,7 +7,7 @@ import (
 
 type Account struct {
 	BaseModel
-	UserID        uint   `json:"user_id"`
+	UserID        string `json:"user_id"`
 	AccountNumber string `json:"account_number"`
 	AccountType   string `json:"account_type"`
 	Balance       int64  `json:"balance"`
@@ -29,7 +29,7 @@ func isAlphaNum(s string) bool {
 func (a *Account) Validate() error {
 	var validationErrors []string
 
-	if a.UserID == 0 {
+	if a.UserID == "" {
 		validationErrors = append(validationErrors, "User ID is required.")
 	}
 
@@ -71,7 +71,7 @@ func (a *Account) Validate() error {
 	return nil
 }
 
-func NewAccount(userID uint, accountNumber, accountType, currency string, balance int64) (*Account, error) {
+func NewAccount(userID string, accountNumber, accountType, currency string, balance int64) (*Account, error) {
 	account := &Account{
 		UserID:        userID,
 		AccountNumber: accountNumber,

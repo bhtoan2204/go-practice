@@ -21,6 +21,11 @@ migrate-down:
 	@echo "Running migrate down..."
 	@$(MIGRATE_CMD) down
 
+.PHONY: migrate-force
+migrate-force:
+	@echo "Forcing migration version..."
+	@$(MIGRATE_CMD) force 4
+
 lint:
 	@echo "Linting Go files..."
 	@golangci-lint run ./...
